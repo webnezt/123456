@@ -1,0 +1,902 @@
+@@ -0,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastry Delights - Premium Wholesale Pastry & Dough Manufacturing</title>
+    <meta name="description" content="Hand-crafted pastries, pie doughs, and savouries made with pure butter. Halaal certified wholesale pastry manufacturer for stores and food service.">
+    <meta name="keywords" content="wholesale pastry, pie dough, halaal pastry, pure butter pastry, eggless pastry, food manufacturing">
+    
+    <meta property="og:title" content="Pastry Delights - Premium Wholesale Pastry Manufacturing">
+    <meta property="og:description" content="Hand-crafted pastries, pie doughs, and savouries made with pure butter. Halaal certified wholesale manufacturer.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: hsl(40, 30%, 97%);
+            --foreground: hsl(30, 15%, 20%);
+            --card: hsl(0, 0%, 100%);
+            --primary: hsl(35, 85%, 55%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --secondary: hsl(30, 40%, 25%);
+            --secondary-foreground: hsl(40, 30%, 97%);
+            --muted: hsl(40, 20%, 92%);
+            --muted-foreground: hsl(30, 10%, 45%);
+            --accent: hsl(38, 92%, 62%);
+            --border: hsl(40, 15%, 88%);
+            --radius: 0.75rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--foreground);
+        }
+
+        .btn-outline:hover {
+            background: var(--muted);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23e8dcc4" width="1920" height="1080"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(250, 248, 246, 0.95), rgba(250, 248, 246, 0.85), rgba(250, 248, 246, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 48rem;
+            padding: 5rem 0;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .gradient-text {
+            display: block;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border-radius: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-content p {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+        }
+
+        .product-list {
+            list-style: none;
+        }
+
+        .product-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .product-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: rgba(237, 157, 51, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--muted-foreground);
+        }
+
+        /* Excellence Box */
+        .excellence-box {
+            background: linear-gradient(135deg, rgba(237, 157, 51, 0.1), rgba(240, 168, 71, 0.1));
+            border-radius: 1rem;
+            padding: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .excellence-box h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .excellence-box p {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            text-align: center;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: rgba(237, 157, 51, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .info-card {
+            max-width: 48rem;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .info-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box {
+            background: rgba(237, 157, 51, 0.05);
+            border: 1px solid rgba(237, 157, 51, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-box h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .info-box li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--secondary-foreground);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(250, 248, 246, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(250, 248, 246, 0.2);
+            color: rgba(250, 248, 246, 0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-title h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">PD</div>
+                    <span class="logo-text">Pastry Delights</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#contact" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Get Quote
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#products" onclick="toggleMobileMenu()">Products</a>
+                <a href="#about" onclick="toggleMobileMenu()">About</a>
+                <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Premium Wholesale
+                    <span class="gradient-text">Pastry Manufacturing</span>
+                </h1>
+                
+                <p>
+                    Hand-crafted pastries, pie doughs, and savouries made with pure butter. 
+                    Halaal certified. Supplying stores and food service businesses.
+                </p>
+                
+                <div class="badges">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>Pure Butter</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>Eggless Options</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>Halaal Certified</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <a href="#contact" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Request Wholesale Pricing
+                    </a>
+                    <a href="#products" class="btn btn-outline" style="font-size: 1.125rem; padding: 1rem 2rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        View Product Range
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" style="background: var(--muted);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Product Range</h2>
+                <p>Quality pastry products crafted for wholesale distribution to stores and food service businesses</p>
+            </div>
+            
+            <div class="products-grid">
+                <article class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Crect fill='%23e8dcc4' width='800' height='800'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' dy='.3em' fill='%23564633'%3EPie Doughs%3C/text%3E%3C/svg%3E" alt="Pie Doughs & Pastry Sheets" class="product-image">
+                    <div class="product-content">
+                        <h3>Pie Doughs & Pastry Sheets</h3>
+                        <p>Premium flaky pie doughs and pastry sheets made with pure butter. Perfect for pies, tarts, and pastries.</p>
+                        <ul class="product-list">
+                            <li>Pie Dough Sheets</li>
+                            <li>Puff Pastry</li>
+                            <li>Shortcrust Pastry</li>
+                            <li>Filo Dough</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Crect fill='%23f0a847' width='800' height='800'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' dy='.3em' fill='%23564633'%3ESweet Pastries%3C/text%3E%3C/svg%3E" alt="Sweet Pastries" class="product-image">
+                    <div class="product-content">
+                        <h3>Sweet Pastries</h3>
+                        <p>Hand-crafted sweet treats including croissants, jam tarts, and specialty pastries.</p>
+                        <ul class="product-list">
+                            <li>Butter Croissants</li>
+                            <li>Jam Tarts</li>
+                            <li>Danish Pastries</li>
+                            <li>Sweet Rolls</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Crect fill='%23ed9d33' width='800' height='800'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' dy='.3em' fill='%23564633'%3ESavouries%3C/text%3E%3C/svg%3E" alt="Savouries & Heat & Eat" class="product-image">
+                    <div class="product-content">
+                        <h3>Savouries & Heat & Eat</h3>
+                        <p>Delicious savoury options and ready-to-heat frozen foods for quick service.</p>
+                        <ul class="product-list">
+                            <li>Samosas</li>
+                            <li>Spring Rolls</li>
+                            <li>Cocktail Pies</li>
+                            <li>Naan Breads</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Pastry Delights</h2>
+                <p>We combine traditional craftsmanship with modern food manufacturing standards to deliver consistent quality at wholesale scale</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Halaal Certified</h3>
+                    <p>All our products are Halaal certified to meet diverse market needs</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Pure Butter Quality</h3>
+                    <p>Made with premium pure butter for exceptional flakiness and taste</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Eggless Options</h3>
+                    <p>Comprehensive range of eggless products for dietary requirements</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Wholesale Focus</h3>
+                    <p>Dedicated to serving stores and food service businesses</p>
+                </div>
+            </div>
+            
+            <div class="excellence-box">
+                <h3>Manufacturing Excellence</h3>
+                <p>
+                    Pastry Delights specializes in hand-crafted pastry and dough manufacturing 
+                    for wholesale distribution. Our facility produces a comprehensive range of 
+                    products from traditional pie doughs to innovative heat-and-eat solutions.
+                </p>
+                <p>
+                    We serve retail stores, food service businesses, and catering companies with 
+                    consistent quality, competitive pricing, and reliable delivery. Our commitment 
+                    to pure butter ingredients and Halaal certification sets us apart in the market.
+                </p>
+                <p style="font-size: 1rem; font-style: italic; opacity: 0.8; margin-top: 1.5rem;">
+                    Note: We wholesale to stores and no longer sell to home industries
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--muted);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to order? Contact us for wholesale pricing and product availability</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p style="color: var(--muted-foreground); margin-bottom: 1rem;">Call us during business hours</p>
+                    <a href="tel:+27XXXXXXXXX" class="btn btn-outline">+27 XX XXX XXXX</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p style="color: var(--muted-foreground); margin-bottom: 1rem;">Quick response via WhatsApp</p>
+                    <a href="https://wa.me/27XXXXXXXXX" class="btn btn-outline">Message Us</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p style="color: var(--muted-foreground); margin-bottom: 1rem;">Send us your wholesale inquiry</p>
+                    <a href="mailto:orders@pastrydelights.co.za" class="btn btn-outline">orders@pastrydelights.co.za</a>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-section">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 4px; color: var(--primary);">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Location</h3>
+                        <p style="color: var(--muted-foreground);">
+                            [Your City/Region, South Africa]<br>
+                            Serving wholesale clients nationwide
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Wholesale Inquiries</h4>
+                    <p style="color: var(--muted-foreground); margin-bottom: 1rem;">
+                        For bulk orders, custom requirements, or to become a retail partner, 
+                        please contact us directly. We offer competitive wholesale pricing and 
+                        flexible delivery options.
+                    </p>
+                    <ul>
+                        <li>Minimum order quantities apply</li>
+                        <li>Volume discounts available</li>
+                        <li>Custom product development options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-icon">PD</div>
+                        <span class="logo-text">Pastry Delights</span>
+                    </div>
+                    <p>Premium wholesale pastry manufacturing. Hand-crafted quality for your business.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#products">Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 +27 XX XXX XXXX</p>
+                    <p>💬 WhatsApp Available</p>
+                    <p>✉️ orders@pastrydelights.co.za</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Pastry Delights. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">Halaal Certified | Pure Butter | Wholesale Only</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
